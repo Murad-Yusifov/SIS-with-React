@@ -1,26 +1,3 @@
-import api from './api'
-
-export const login = async (email, password) => {
-  const res = await api.post('/auth/login', { email, password })
-  return res.data
-}
-
-export const register = async (payload) => {
-  const res = await api.post('/auth/register', payload)
-  return res.data
-}
-
-export const getProfile = async () => {
-  const res = await api.get('/auth/profile')
-  return res.data
-}
-
-export const logout = () => {
-  localStorage.removeItem('token')
-  localStorage.removeItem('user')
-}
-
-/* src/hooks/useAuth.js */
 import { useState, useEffect } from 'react'
 import jwtDecode from 'jwt-decode'
 
